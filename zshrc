@@ -13,6 +13,7 @@ if ! zgen saved; then
 
   zgen load romkatv/powerlevel10k powerlevel10k
 
+  zgen oh-my-zsh plugins/autojump
   zgen oh-my-zsh plugins/colored-man-pages
   zgen oh-my-zsh plugins/colorize
   zgen oh-my-zsh plugins/cp
@@ -34,6 +35,8 @@ if ! zgen saved; then
 
   zgen save
 fi
+
+source "${ZSH_CUSTOM}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 ZSH_CONF=$HOME/.zsh
 ZSH_CACHE=$ZSH_CONF/cache

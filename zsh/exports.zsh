@@ -5,15 +5,7 @@ export PAGER=less
 export LANG="en_US.UTF-8"
 export LC_ALL=en_US.UTF-8
 
-# export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/opt/local/bin:/usr/local/sbin:~/Library/Python/3.7/bin:/Applications/Google\ Chrome.app/Contents/MacOS:$PATH
 export PATH=$HOME/go/bin:$PATH
-
-# export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
-# export LDFLAGS="-L/usr/local/opt/ruby/lib"
-# export CPPFLAGS="-I/usr/local/opt/ruby/include"
-
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER="less -X"
@@ -35,29 +27,11 @@ unsetopt FLOW_CONTROL
 
 export HOMEBREW_NO_ANALYTICS=1
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
-
-if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1;
-then
-  export TERM=gnome-256color
-elif infocmp xterm-256color >/dev/null 2>&1; then
-  export TERM=xterm-256color
-fi
-
-case "$TERM" in
-  xterm-*color) color_prompt=yes;;
-esac
-
 export BAT_PAGER=""
 
 export TLDR_PARAM='yellow'
 
-# export AWS_DEFAULT_REGION="us-west-2"
-
 export AWS_PAGER=
-
-# export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 
 export PYTHONIOENCODING='UTF-8';
 
@@ -70,5 +44,8 @@ export NODE_REPL_MODE='sloppy';
 
 # see https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0/42265848#42265848
 export GPG_TTY=$(tty)
+
+export LS_COLORS="$(vivid generate snazzy)"
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 test -e "$ZSH_CONF/secrets/exports.zsh" && source $ZSH_CONF/secrets/exports.zsh
