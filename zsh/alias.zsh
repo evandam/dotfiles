@@ -28,5 +28,6 @@ alias cat='/usr/local/bin/bat -p'
 alias sssh='ssh -v -o ConnectTimeout=3 -o ConnectionAttempts=999 @'
 alias week='date +%V'
 alias path='echo -e ${PATH//:/\\n}'
+alias rm='careful_rm -c'
 
 test -e "$ZSH_CONF/secrets/alias.zsh" && source $ZSH_CONF/secrets/alias.zsh
