@@ -63,6 +63,7 @@ zinit wait lucid for \
   light-mode djui/alias-tips \
   light-mode romulomachado/title-tab \
   light-mode DarrinTisdale/zsh-aliases-exa \
+  light-mode macunha1/zsh-terraform \
   OMZP::cp \
   OMZP::colored-man-pages \
   OMZP::safe-paste \
