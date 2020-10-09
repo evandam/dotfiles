@@ -1,5 +1,3 @@
-lazyload pyenv -- 'eval "$(pyenv init -)"'
+eval "$(jump shell)"
 
-lazyload rbenv -- 'eval "$(rbenv init -)"'
-
-test -e "$ZSH_CONF/secrets/eval.zsh" && source $ZSH_CONF/secrets/eval.zsh
+test -e "$DOTFILES/zsh/secrets/eval.zsh" && source $DOTFILES/zsh/secrets/eval.zsh

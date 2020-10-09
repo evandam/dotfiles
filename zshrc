@@ -1,67 +1,90 @@
+#!/usr/bin/env zsh
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 export ZSH_CONF=$HOME/.zsh
 export ZSH_CACHE=$ZSH_CONF/cache
 export ZSH_CACHE_DIR=$ZSH_CACHE
 export ZSH_COMPDUMP="${ZSH_CACHE}/.zcompdump-${(%):-%m}-${ZSH_VERSION}"
 
-autoload -Uz compinit && compinit -C -d $ZSH_COMPDUMP
+# zmodload zsh/zprof
 
-source "${HOME}/.zgen/zgen.zsh"
+DOTFILES=$HOME/dotfiles
+ZSH_CACHE=$HOME/.zsh/cache
 
-# if the init script doesn't exist
-if ! zgen saved; then
-  zgen load romkatv/powerlevel10k powerlevel10k
+declare -A ZINIT
+ZINIT_HOME=$HOME/.zinit
+ZINIT[HOME_DIR]=$ZINIT_HOME
+ZINIT[ZCOMPDUMP_PATH]=$ZSH_CACHE/zcompdump
 
-  zgen load zsh-users/zsh-syntax-highlighting
-
-  zgen load djui/alias-tips
-  zgen load unixorn/autoupdate-zgen
-  zgen load unixorn/fzf-zsh-plugin
-  zgen load zsh-users/zsh-completions
-  zgen load qoomon/zsh-lazyload
-
-  zgen oh-my-zsh plugins/colored-man-pages
-  # zgen oh-my-zsh plugins/colorize
-  zgen oh-my-zsh plugins/cp
-  zgen oh-my-zsh plugins/docker
-  zgen oh-my-zsh plugins/docker-compose
-  # zgen oh-my-zsh plugins/docker-machine
-  zgen oh-my-zsh plugins/extract
-  zgen oh-my-zsh plugins/fasd
-  zgen oh-my-zsh plugins/fd
-  # zgen oh-my-zsh plugins/kitchen
-  # zgen oh-my-zsh plugins/knife
-  # zgen oh-my-zsh plugins/nomad
-  # zgen oh-my-zsh plugins/pyenv
-  # zgen oh-my-zsh plugins/rbenv
-  zgen oh-my-zsh plugins/redis-cli
-  zgen oh-my-zsh plugins/safe-paste
-  # zgen oh-my-zsh plugins/terraform
-  zgen oh-my-zsh plugins/vscode
-
-  # zgen load zsh-users/zsh-syntax-highlighting
-  zgen load zdharma/fast-syntax-highlighting
-  zgen save
+if [[ ! -f $ZINIT_HOME/bin/zinit.zsh ]]; then
+	git clone git@github.com:zdharma/zinit.git $ZINIT_HOME/bin
+	zcompile $ZINIT_HOME/bin/zinit.zsh
 fi
 
-ZSH_CONF=$HOME/.zsh
-ZSH_CACHE=$ZSH_CONF/cache
+source $ZINIT_HOME/bin/zinit.zsh
 
-source "${ZSH_CONF}/eval.zsh"
-source "${ZSH_CONF}/alias.zsh"
-source "${ZSH_CONF}/history.zsh"
-source "${ZSH_CONF}/functions.zsh"
-source "${ZSH_CONF}/exports.zsh"
-source "${ZSH_CONF}/sources.zsh"
-source "${ZSH_CONF}/completions.zsh"
+# NOTE: make prompt faster
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+zinit wait lucid for \
+  OMZL::directories.zsh \
+  OMZL::completion.zsh \
+  OMZL::termsupport.zsh \
+  OMZL::compfix.zsh
+
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+# PS1=
+# zinit ice depth=1 lucid wait'!' lucid atload"source ${DOTFILES}/p10k.zsh; _p9k_precmd" nocd
+# zinit light scalp42/powerlevel10k
+
+zinit wait lucid for \
+  light-mode asdf-vm/asdf \
+  light-mode unixorn/fzf-zsh-plugin \
+  light-mode unixorn/git-extra-commands \
+  light-mode paoloantinori/hhighlighter \
+  light-mode hlissner/zsh-autopair \
+  light-mode rtuin/zsh-case \
+  light-mode ChrisPenner/copy-pasta \
+  light-mode peterhurford/git-it-on.zsh \
+  light-mode caarlos0-graveyard/zsh-git-sync \
+  light-mode rummik/zsh-ing \
+  light-mode supercrabtree/k \
+  light-mode micrenda/zsh-nohup \
+  light-mode robertzk/send.zsh \
+  light-mode zdharma/fast-syntax-highlighting \
+  light-mode djui/alias-tips \
+  light-mode romulomachado/title-tab \
+  light-mode DarrinTisdale/zsh-aliases-exa \
+  OMZP::cp \
+  OMZP::colored-man-pages \
+  OMZP::safe-paste \
+  OMZP::urltools \
+  # OMZP::rbenv
+
+zinit snippet "${DOTFILES}/zsh/alias.zsh"
+zinit snippet "${DOTFILES}/zsh/functions.zsh"
+zinit snippet "${DOTFILES}/zsh/history.zsh"
+zinit ice wait lucid; zinit snippet "${DOTFILES}/zsh/exports.zsh"
+
+zinit ice wait lucid atload"autoload -Uz compinit && compinit -d $ZSH_CACHE/zcompdump"; zinit snippet "${DOTFILES}/zsh/sources.zsh"
+zinit ice wait lucid; zinit snippet "${DOTFILES}/zsh/eval.zsh"
+
+zinit ice wait:0 lucid atload'
+	zstyle ":notify:*" error-title "Command failed (in #{time_elapsed} seconds)"
+	zstyle ":notify:*" success-title "Command finished (in #{time_elapsed} seconds)"
+	zstyle ":notify:*" command-complete-timeout 2
+	zstyle ":notify:*" enable-on-ssh yes'
+zinit light marzocchi/zsh-notify
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f "${ZSH_CONF}/p10k.zsh" ]] || source "${ZSH_CONF}/p10k.zsh"
+[[ ! -f "${DOTFILES}/p10k.zsh" ]] || source "${DOTFILES}/p10k.zsh"
 
-[[ -f /usr/local/opt/asdf/asdf.sh ]] && . /usr/local/opt/asdf/asdf.sh
+# zinit cdreplay -q
