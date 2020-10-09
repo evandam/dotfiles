@@ -1,5 +1,3 @@
-alias ll='ls -lFh'
-alias la='ls -lFha'
 alias xi='exit'
 alias htop='sudo htop'
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mas upgrade'
@@ -28,6 +26,24 @@ alias cat='/usr/local/bin/bat -p'
 alias sssh='ssh -v -o ConnectTimeout=3 -o ConnectionAttempts=999 @'
 alias week='date +%V'
 alias path='echo -e ${PATH//:/\\n}'
-alias rm='careful_rm -c'
+alias rm='safe-rm'
+alias lwd='cd $OLDPWD'
 
-test -e "$ZSH_CONF/secrets/alias.zsh" && source $ZSH_CONF/secrets/alias.zsh
+alias vsc="code ."
+alias vsca="code --add"
+alias vscd="code --diff"
+alias vscg="code --goto"
+alias vscn="code --new-window"
+alias vscr="code --reuse-window"
+alias vscw="code --wait"
+alias vscu="code --user-data-dir"
+
+alias vsced="code --extensions-dir"
+alias vscie="code --install-extension"
+alias vscue="code --uninstall-extension"
+
+alias vscv="code --verbose"
+alias vscl="code --log"
+alias vscde="code --disable-extensions"
+
+test -e "$DOTFILES/zsh/secrets/alias.zsh" && source $DOTFILES/zsh/secrets/alias.zsh

@@ -48,4 +48,4 @@ export GPG_TTY=$(tty)
 export LS_COLORS="$(vivid generate snazzy)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-test -e "$ZSH_CONF/secrets/exports.zsh" && source $ZSH_CONF/secrets/exports.zsh
+test -e "$DOTFILES/zsh/secrets/exports.zsh" && source $DOTFILES/zsh/secrets/exports.zsh
