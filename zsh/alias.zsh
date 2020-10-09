@@ -46,4 +46,4 @@ alias vscv="code --verbose"
 alias vscl="code --log"
 alias vscde="code --disable-extensions"
 
-test -e "$DOTFILES/zsh/secrets/alias.zsh" && source $DOTFILES/zsh/secrets/alias.zsh
+test -e "$DOTFILES/zsh/secrets/alias.zsh" && source "$DOTFILES/zsh/secrets/alias.zsh"
