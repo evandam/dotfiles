@@ -85,6 +85,6 @@ zinit ice wait:0 lucid atload'
 zinit light marzocchi/zsh-notify
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f "${DOTFILES}/p10k.zsh" ]] || source "${DOTFILES}/p10k.zsh"
+[[ ! -f "${DOTFILES}/p10k.zsh" ]] || zinit snippet "${DOTFILES}/p10k.zsh"
 
 # zinit cdreplay -q
