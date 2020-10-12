@@ -67,6 +67,7 @@ zinit wait lucid for \
   OMZP::colored-man-pages \
   OMZP::safe-paste \
   OMZP::urltools \
+  macunha1/zsh-terraform \
   # OMZP::rbenv
 
 zinit snippet "${DOTFILES}/zsh/alias.zsh"
