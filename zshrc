@@ -12,6 +12,8 @@ export ZSH_CACHE=$ZSH_CONF/cache
 export ZSH_CACHE_DIR=$ZSH_CACHE
 export ZSH_COMPDUMP="${ZSH_CACHE}/.zcompdump-${(%):-%m}-${ZSH_VERSION}"
 
+setopt complete_aliases
+
 # zmodload zsh/zprof
 
 DOTFILES=$HOME/dotfiles
