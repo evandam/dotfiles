@@ -28,6 +28,7 @@ alias week='date +%V'
 alias path='echo -e ${PATH//:/\\n}'
 alias rm='safe-rm'
 alias lwd='cd $OLDPWD'
+alias vim='nvim'
 
 alias vsc="code ."
 alias vsca="code --add"
