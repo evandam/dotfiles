@@ -48,7 +48,6 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 # zinit light scalp42/powerlevel10k
 
 zinit wait lucid for \
-  light-mode asdf-vm/asdf \
   light-mode unixorn/fzf-zsh-plugin \
   light-mode unixorn/git-extra-commands \
   light-mode paoloantinori/hhighlighter \
@@ -65,6 +64,7 @@ zinit wait lucid for \
   light-mode djui/alias-tips \
   light-mode romulomachado/title-tab \
   light-mode DarrinTisdale/zsh-aliases-exa \
+  light-mode darvid/zsh-poetry \
   OMZP::cp \
   OMZP::colored-man-pages \
   OMZP::safe-paste \
