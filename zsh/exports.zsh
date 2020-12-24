@@ -48,4 +48,7 @@ export GPG_TTY=$(tty)
 export LS_COLORS="$(vivid generate snazzy)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 test -e "$DOTFILES/zsh/secrets/exports.zsh" && source $DOTFILES/zsh/secrets/exports.zsh
