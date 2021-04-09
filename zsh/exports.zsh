@@ -10,6 +10,8 @@ export PATH=$HOME/go/bin:$PATH
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER="less -X"
 
+# export GIT_PAGER="less -X"
+
 # Simply type the name of a directory, and it will become the current directory
 setopt AUTOCD
 
@@ -27,7 +29,7 @@ unsetopt FLOW_CONTROL
 
 export HOMEBREW_NO_ANALYTICS=1
 
-export BAT_PAGER=""
+# export BAT_PAGER=""
 
 export TLDR_PARAM='yellow'
 

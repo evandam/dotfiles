@@ -91,3 +91,6 @@ zinit light marzocchi/zsh-notify
 [[ ! -f "${DOTFILES}/p10k.zsh" ]] || source "${DOTFILES}/p10k.zsh"
 
 # zinit cdreplay -q
+
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
