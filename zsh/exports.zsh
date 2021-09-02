@@ -5,8 +5,6 @@ export PAGER=less
 export LANG="en_US.UTF-8"
 export LC_ALL=en_US.UTF-8
 
-export PATH=$HOME/go/bin:$PATH
-
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER="less -X"
 
@@ -52,5 +50,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 
 test -e "$DOTFILES/zsh/secrets/exports.zsh" && source $DOTFILES/zsh/secrets/exports.zsh

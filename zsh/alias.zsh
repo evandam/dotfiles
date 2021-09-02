@@ -49,4 +49,7 @@ alias vscde="code --disable-extensions"
 
 alias curl="curl -sLf"
 
+alias dendron="code ~/Dendron/dendron.code-workspace"
+alias notes="dendron"
+
 test -e "$DOTFILES/zsh/secrets/alias.zsh" && source $DOTFILES/zsh/secrets/alias.zsh
