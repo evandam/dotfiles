@@ -25,7 +25,7 @@ ZINIT[HOME_DIR]=$ZINIT_HOME
 ZINIT[ZCOMPDUMP_PATH]=$ZSH_CACHE/zcompdump
 
 if [[ ! -f $ZINIT_HOME/bin/zinit.zsh ]]; then
-	git clone git@github.com:zdharma/zinit.git $ZINIT_HOME/bin
+	git clone git@github.com:zdharma-continuum/zinit.git $ZINIT_HOME/bin
 	zcompile $ZINIT_HOME/bin/zinit.zsh
 fi
 
@@ -60,7 +60,7 @@ zinit wait lucid for \
   light-mode supercrabtree/k \
   light-mode micrenda/zsh-nohup \
   light-mode robertzk/send.zsh \
-  light-mode zdharma/fast-syntax-highlighting \
+  light-mode zdharma-continuum/fast-syntax-highlighting \
   light-mode djui/alias-tips \
   light-mode romulomachado/title-tab \
   light-mode DarrinTisdale/zsh-aliases-exa \
