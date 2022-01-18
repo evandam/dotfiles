@@ -42,7 +42,8 @@ zinit wait lucid for \
   OMZL::directories.zsh \
   OMZL::completion.zsh \
   OMZL::termsupport.zsh \
-  OMZL::compfix.zsh
+  OMZL::compfix.zsh \
+  OMZP::asdf
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 # PS1=

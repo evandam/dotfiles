@@ -4,7 +4,7 @@ set -e
 
 eval $(/opt/homebrew/bin/brew shellenv)
 
-brew install asdf neovim exa vivid jump bat git-delta
+brew install asdf neovim exa vivid jump bat git-delta safe-rm
 
 create_link() {
   if [ ! -f "$2" ]; then
