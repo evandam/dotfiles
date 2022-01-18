@@ -31,6 +31,8 @@ fi
 
 source $ZINIT_HOME/bin/zinit.zsh
 
+eval $(/opt/homebrew/bin/brew shellenv)
+
 # NOTE: make prompt faster
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 ZSH_AUTOSUGGEST_USE_ASYNC=true
