@@ -1,15 +1,23 @@
 #!/bin/sh
 
-set -ex
+set -e
 
 eval $(/opt/homebrew/bin/brew shellenv)
 
-brew install asdf neovim exa vivid jump
+brew install asdf neovim exa vivid jump bat git-delta
 
-if [ ! -f ~/.zshrc ]; then
-  ln -s ~/dotfiles/zshrc ~/.zshrc
-fi
+create_link() {
+  if [ ! -f "$2" ]; then
+    ln -s "$1" "$2"
+  else
+    echo "$2 already exists"
+  fi
+}
 
-if [ ! -f ~/.gitconfig ]; then
-  ln -s ~/dotfiles/gitconfig ~/.gitconfig
-fi
+create_link ~/dotfiles/zshrc ~/.zshrc
+create_link ~/dotfiles/gitconfig ~/.gitconfig
+create_link ~/dotfiles/gitignore_global ~/.gitignore_global
+
+echo "Install fonts for p10k here: https://github.com/romkatv/powerlevel10k#manual-font-installation"
+
+echo "Open VSCode and run 'Install code command in PATH"
