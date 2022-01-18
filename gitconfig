@@ -7,7 +7,7 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [user]
 	name = Evan Van Dam
-	email = evan@northernlabs.ca
+	email = evan.vandam@wonolo.com
 [core]
 	excludesfiles = /Users/evanvandam/.gitignore_global
 	excludesfile = /Users/evanvandam/.gitignore_global
