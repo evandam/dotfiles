@@ -54,8 +54,5 @@ export PATH=$PATH:$GOPATH/bin
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 
 export PATH="$(brew --prefix libpq)/bin:$PATH"
-export PATH="${PATH}:${HOME}/.krew/bin"
-
-export KUBECTL_EXTERNAL_DIFF=kubectl-neat-diff
 
 test -e "$DOTFILES/zsh/secrets/exports.zsh" && source $DOTFILES/zsh/secrets/exports.zsh
