@@ -52,6 +52,8 @@ alias curl="curl -sLf"
 alias dendron="code ~/Dendron/dendron.code-workspace"
 alias notes="dendron"
 
-alias kd='DOCKER_HOST=$(docker context inspect colima -f {{.Endpoints.docker.Host}}) KITCHEN_YAML=.kitchen.dokken.yml kitchen'
+# alias kd='DOCKER_HOST=$(docker context inspect colima -f {{.Endpoints.docker.Host}}) KITCHEN_YAML=.kitchen.dokken.yml kitchen'
+
+alias k='kubectl'
 
 test -e "$DOTFILES/zsh/secrets/alias.zsh" && source $DOTFILES/zsh/secrets/alias.zsh

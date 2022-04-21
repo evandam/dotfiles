@@ -30,6 +30,7 @@ set statusline+=%*
 " let g:syntastic_check_on_wq = 0
 " let g:syntastic_python_checkers = ['flake8']
 
+set conceallevel=0
 
 " Allow comments in JSON
 au BufReadPost *.json set syntax=jsonc
