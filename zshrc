@@ -12,8 +12,6 @@ export ZSH_CACHE=$ZSH_CONF/cache
 export ZSH_CACHE_DIR=$ZSH_CACHE
 export ZSH_COMPDUMP="${ZSH_CACHE}/.zcompdump-${(%):-%m}-${ZSH_VERSION}"
 
-setopt complete_aliases
-
 # zmodload zsh/zprof
 
 DOTFILES=$HOME/dotfiles
@@ -31,6 +29,8 @@ fi
 
 source $ZINIT_HOME/bin/zinit.zsh
 
+eval $(/opt/homebrew/bin/brew shellenv)
+
 # NOTE: make prompt faster
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 ZSH_AUTOSUGGEST_USE_ASYNC=true
@@ -40,7 +40,8 @@ zinit wait lucid for \
   OMZL::directories.zsh \
   OMZL::completion.zsh \
   OMZL::termsupport.zsh \
-  OMZL::compfix.zsh
+  OMZL::compfix.zsh \
+  OMZP::asdf
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 # PS1=
@@ -76,7 +77,8 @@ zinit snippet "${DOTFILES}/zsh/functions.zsh"
 zinit snippet "${DOTFILES}/zsh/history.zsh"
 zinit ice wait lucid; zinit snippet "${DOTFILES}/zsh/exports.zsh"
 
-zinit ice wait lucid atload"autoload -Uz compinit && compinit -d $ZSH_CACHE/zcompdump"; zinit snippet "${DOTFILES}/zsh/sources.zsh"
+# zinit ice wait lucid atload"autoload -Uz compinit && compinit -d $ZSH_CACHE/zcompdump"; zinit snippet "${DOTFILES}/zsh/sources.zsh"
+zinit ice wait lucid; zinit snippet "${DOTFILES}/zsh/sources.zsh"
 zinit ice wait lucid; zinit snippet "${DOTFILES}/zsh/eval.zsh"
 
 zinit ice wait:0 lucid atload'
@@ -93,3 +95,7 @@ zinit light marzocchi/zsh-notify
 
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/evan/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

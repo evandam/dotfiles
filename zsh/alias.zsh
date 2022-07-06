@@ -22,7 +22,7 @@ alias pipu='pip3 freeze | xargs pip install --upgrade'
 alias rmv='rvm use 2.7.1 --install --create'
 alias chefdk='eval "$(chef shell-init $PYENV_SHELL)"'
 alias dockerinit='eval "$(docker-machine env default)"; export DOCKER_IP=$(docker-machine ip default)'
-alias cat='/usr/local/bin/bat -p --paging=never'
+alias cat='bat -p --paging=never'
 alias sssh='ssh -v -o ConnectTimeout=3 -o ConnectionAttempts=999 @'
 alias week='date +%V'
 alias path='echo -e ${PATH//:/\\n}'
@@ -51,5 +51,9 @@ alias curl="curl -sLf"
 
 alias dendron="code ~/Dendron/dendron.code-workspace"
 alias notes="dendron"
+
+# alias kd='DOCKER_HOST=$(docker context inspect colima -f {{.Endpoints.docker.Host}}) KITCHEN_YAML=.kitchen.dokken.yml kitchen'
+
+alias k='kubectl'
 
 test -e "$DOTFILES/zsh/secrets/alias.zsh" && source $DOTFILES/zsh/secrets/alias.zsh

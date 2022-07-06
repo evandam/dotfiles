@@ -1,0 +1,50 @@
+[alias]
+	co = checkout
+	ci = commit
+	br = !git --no-pager branch
+	st = status
+	s = status -s
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[user]
+	name = Evan Van Dam
+	email = evan@northernlabs.ca
+[core]
+	excludesfiles = /Users/evanvandam/.gitignore_global
+	excludesfile = /Users/evanvandam/.gitignore_global
+	editor = nvim
+	pager = delta
+[rebase]
+  stat = true
+  autoStash = true
+[pull]
+  rebase = true
+[branch]
+  sort = -committerdate
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[delta]
+  syntax-theme = Dracula
+  line-numbers = true
+  line-numbers-left-format = ""
+  line-numbers-right-format = "{np:>4}│"
+
+  file-style = "blue bold"
+  ;minus-style = "syntax #750000"
+  ;plus-style = "syntax #006900"
+  chunk-header-decoration-style = "auto dim"
+[interactive]
+    diffFilter = delta --color-only
+[maintenance]
+	repo = /Users/evanvandam/wonolo/platform-core

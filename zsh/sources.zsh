@@ -1,9 +1,11 @@
 #!/usr/bin/env zsh
 
+autoload -Uz compinit
+compinit -d $ZSH_CACHE/zcompdump
+
 if [[ -f "/usr/local/bin/aws_zsh_completer.sh" ]]; then
   source "/usr/local/bin/aws_zsh_completer.sh"
 fi
 
-if [[ -f "/usr/local/opt/asdf/asdf.sh" ]]; then
-  source "/usr/local/opt/asdf/asdf.sh"
-fi
+source <(/Users/evan/.asdf/shims/kubectl completion zsh)
+source <(/opt/homebrew/bin/helm completion zsh)
