@@ -23,17 +23,17 @@
 [color]
 	ui = true
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 [color "diff"]
-	meta = 11
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+  meta = 11
+  frag = magenta bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
 [delta]
   syntax-theme = Dracula
   line-numbers = true
@@ -41,10 +41,10 @@
   line-numbers-right-format = "{np:>4}│"
 
   file-style = "blue bold"
-  ;minus-style = "syntax #750000"
-  ;plus-style = "syntax #006900"
+  inus-style = "syntax #750000"
+  lus-style = "syntax #006900"
   chunk-header-decoration-style = "auto dim"
 [interactive]
-    diffFilter = delta --color-only
-[maintenance]
-	repo = /Users/evanvandam/wonolo/platform-core
+  diffFilter = delta --color-only
+; [diff]
+;  external = difft --color=always 
