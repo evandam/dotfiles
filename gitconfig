@@ -2,6 +2,7 @@
 	co = checkout
 	ci = commit
 	br = !git --no-pager branch
+	sw = !git switch
 	st = status
 	s = status -s
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -48,3 +49,5 @@
   diffFilter = delta --color-only
 ; [diff]
 ;  external = difft --color=always 
+[init]
+	defaultBranch = main
