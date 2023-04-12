@@ -1,4 +1,5 @@
 eval "$(jump shell)"
+eval "$(zoxide init zsh)"
 # eval "$(rbenv init -)"
 # eval "$(pyenv init -)"
 #

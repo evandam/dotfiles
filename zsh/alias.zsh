@@ -1,5 +1,5 @@
 alias xi='exit'
-alias htop='sudo htop'
+# alias htop='sudo htop'
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mas upgrade'
 alias upgrade=update
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -55,5 +55,13 @@ alias notes="dendron"
 # alias kd='DOCKER_HOST=$(docker context inspect colima -f {{.Endpoints.docker.Host}}) KITCHEN_YAML=.kitchen.dokken.yml kitchen'
 
 alias k='kubectl'
+
+alias k9sro='k9s --readonly'
+
+# NOTE: docker run aws-vault
+drav() {
+  AWS_PROFILE="$1"; shift
+  aws-vault exec "$AWS_PROFILE" -- docker run --rm -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN "$@"
+}
 
 test -e "$DOTFILES/zsh/secrets/alias.zsh" && source $DOTFILES/zsh/secrets/alias.zsh

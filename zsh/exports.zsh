@@ -1,4 +1,5 @@
-export EDITOR=vim
+# export EDITOR=nvim
+export EDITOR=hx
 export VISUAL="code -- ${@}"
 export PAGER=less
 # export LESS="-X"

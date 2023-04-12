@@ -38,6 +38,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 zinit wait lucid for \
   OMZL::directories.zsh \
+  OMZL::functions.zsh \
   OMZL::completion.zsh \
   OMZL::termsupport.zsh \
   OMZL::compfix.zsh \
@@ -66,6 +67,7 @@ zinit wait lucid for \
   light-mode romulomachado/title-tab \
   light-mode DarrinTisdale/zsh-aliases-exa \
   light-mode darvid/zsh-poetry \
+  light-mode agkozak/zsh-z \
   OMZP::cp \
   OMZP::colored-man-pages \
   OMZP::safe-paste \
