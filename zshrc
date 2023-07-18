@@ -79,9 +79,12 @@ zinit snippet "${DOTFILES}/zsh/functions.zsh"
 zinit snippet "${DOTFILES}/zsh/history.zsh"
 zinit ice wait lucid; zinit snippet "${DOTFILES}/zsh/exports.zsh"
 
+# autoload -Uz compinit
+# compinit
+
 # zinit ice wait lucid atload"autoload -Uz compinit && compinit -d $ZSH_CACHE/zcompdump"; zinit snippet "${DOTFILES}/zsh/sources.zsh"
-zinit ice wait lucid; zinit snippet "${DOTFILES}/zsh/sources.zsh"
-zinit ice wait lucid; zinit snippet "${DOTFILES}/zsh/eval.zsh"
+zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit snippet "${DOTFILES}/zsh/sources.zsh"
+zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit snippet "${DOTFILES}/zsh/eval.zsh"
 
 zinit ice wait:0 lucid atload'
 	zstyle ":notify:*" error-title "Command failed (in #{time_elapsed} seconds)"
@@ -99,6 +102,5 @@ zstyle ':completion:*' menu select
 fpath+=~/.zfunc
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/evan/.rd/bin:$PATH"
+# export PATH="/Users/evan/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-

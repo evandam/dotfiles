@@ -12,7 +12,7 @@
 [core]
 	excludesfiles = /Users/evanvandam/.gitignore_global
 	excludesfile = /Users/evanvandam/.gitignore_global
-	editor = nvim
+	editor = hx
 	pager = delta
 [rebase]
   stat = true
