@@ -1,7 +1,7 @@
 alias xi='exit'
 # alias htop='sudo htop'
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mas upgrade'
-alias upgrade=update
+# alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mas upgrade'
+# alias upgrade=update
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
@@ -57,6 +57,8 @@ alias notes="dendron"
 alias k='kubectl'
 
 alias k9sro='k9s --readonly'
+
+alias find="bfs"
 
 # NOTE: docker run aws-vault
 drav() {
