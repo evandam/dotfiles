@@ -56,10 +56,7 @@ export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 
 export PATH="$(brew --prefix libpq)/bin:$PATH"
 export PATH="${PATH}:${HOME}/.krew/bin"
-
-if [[ -d "${HOME}/.rd/bin" ]]; then
-  export PATH="${PATH}:${HOME}/.rd/bin"
-fi
+export PATH="${PATH}:${HOME}/.bin"
 
 export KUBECTL_EXTERNAL_DIFF=kubectl-neat-diff
 

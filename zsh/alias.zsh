@@ -66,4 +66,7 @@ drav() {
   aws-vault exec "$AWS_PROFILE" -- docker run --rm -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN "$@"
 }
 
+alias docker-build-pwd='docker buildx build . -t $(basename $PWD)'
+alias docker-run-pwd='docker run $(basename $PWD)'
+
 test -e "$DOTFILES/zsh/secrets/alias.zsh" && source $DOTFILES/zsh/secrets/alias.zsh
