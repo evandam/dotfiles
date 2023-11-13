@@ -69,4 +69,6 @@ drav() {
 alias docker-build-pwd='docker buildx build . -t $(basename $PWD)'
 alias docker-run-pwd='docker run $(basename $PWD)'
 
+alias docker=finch
+
 test -e "$DOTFILES/zsh/secrets/alias.zsh" && source $DOTFILES/zsh/secrets/alias.zsh
