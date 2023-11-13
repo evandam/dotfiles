@@ -103,7 +103,7 @@ zstyle ':completion:*' menu select
 fpath+=~/.zfunc
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/evan/.rd/bin:$PATH"
+# export PATH="/Users/evan/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # bun completions
