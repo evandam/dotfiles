@@ -6,3 +6,4 @@ fi
 
 source <(/Users/evan/.asdf/shims/kubectl completion zsh)
 source <(/opt/homebrew/bin/helm completion zsh)
+source <(/opt/homebrew/bin/flux completion zsh)

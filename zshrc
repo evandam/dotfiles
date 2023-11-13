@@ -72,6 +72,7 @@ zinit wait lucid for \
   OMZP::colored-man-pages \
   OMZP::safe-paste \
   OMZP::urltools \
+  OMZP::rbenv \
   macunha1/zsh-terraform
 
 zinit snippet "${DOTFILES}/zsh/alias.zsh"
@@ -111,3 +112,4 @@ export PATH="/Users/evan/.rd/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
