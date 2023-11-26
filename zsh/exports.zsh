@@ -58,6 +58,8 @@ export PATH="$(brew --prefix libpq)/bin:$PATH"
 export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH="${PATH}:${HOME}/.bin"
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 export KUBECTL_EXTERNAL_DIFF=kubectl-neat-diff
 
 test -e "$DOTFILES/zsh/secrets/exports.zsh" && source $DOTFILES/zsh/secrets/exports.zsh
