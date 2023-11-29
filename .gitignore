@@ -1,3 +1,8 @@
 secrets/
 cache/
 .cache/
+
+dist/
+venv/
+*.pyc
+*.pyo
