@@ -79,6 +79,7 @@
           - dozer
           - finch
           - maccy
+          - openlens
       tags:
         - brew
 
@@ -86,11 +87,13 @@
       ansible.builtin.file:
         path: "{{ item }}"
         state: directory
+        mode: '0755'
       loop:
         - ~/.config
         - ~/.config/nvim
         - ~/.docker
         - ~/.docker/cli-plugins
+        - ~/.zinit
 
     - name: Create symlinks
       ansible.builtin.file:
@@ -106,9 +109,29 @@
         - { src: ~/dotfiles/init.vim, dest: ~/.config/nvim/init.vim }
         - src: /opt/homebrew/opt/docker-compose/bin/docker-compose
           dest: ~/.docker/cli-plugins/docker-compose
+      notify:
+        - Compile zinit
 
-    - name: Zinit update
-      ansible.builtin.command: zsh -ic 'zinit update -p 20'
+    - name: Clone zinit
+      ansible.builtin.git:
+        repo: git@github.com:zdharma-continuum/zinit.git
+        dest: ~/.zinit/bin
+        update: true
+        # noqa: latest
+        version: HEAD
+      notify:
+        - Compile zinit source
       tags:
         - zinit
+
 # TODO: Krew
+  handlers:
+    - name: Compile zinit source
+      # noqa: no-changed-when
+      ansible.builtin.command:
+        cmd: zsh -c 'zcompile ~/.zinit/bin/zinit.zsh'
+
+    - name: Compile zinit
+      # noqa: no-changed-when
+      ansible.builtin.command:
+        cmd: zsh -c 'zinit compile --all'
