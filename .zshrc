@@ -1,18 +1,15 @@
+#!/usr/bin/env zsh
+
+PATH="${PATH}:${HOME}/.bin"
+PATH="${PATH}:${HOME}/.local/bin"
+export PATH
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-#!/usr/bin/env zsh
-
-# # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# # Initialization code that may require console input (password prompts, [y/n]
-# # confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
 
 export ZSH_CONF=$HOME/.zsh
 export ZSH_CACHE=$ZSH_CONF/cache
@@ -108,17 +105,6 @@ zinit light marzocchi/zsh-notify
 
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/evan/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
-# bun completions
-[ -s "/Users/evan/.bun/_bun" ] && source "/Users/evan/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

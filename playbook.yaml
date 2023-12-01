@@ -54,7 +54,7 @@
           - nova
           - oath-toolkit
           - parallel
-          - pkgx
+          # - pkgx
           - qemu
           - redis
           - ripgrep
@@ -106,4 +106,9 @@
         - { src: ~/dotfiles/init.vim, dest: ~/.config/nvim/init.vim }
         - src: /opt/homebrew/opt/docker-compose/bin/docker-compose
           dest: ~/.docker/cli-plugins/docker-compose
+
+    - name: Zinit update
+      ansible.builtin.command: zinit update -p 20
+      tags:
+        - zinit
 # TODO: Krew
