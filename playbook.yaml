@@ -108,7 +108,7 @@
           dest: ~/.docker/cli-plugins/docker-compose
 
     - name: Zinit update
-      ansible.builtin.command: zinit update -p 20
+      ansible.builtin.command: zsh -ic 'zinit update -p 20'
       tags:
         - zinit
 # TODO: Krew
