@@ -54,6 +54,9 @@ alias notes="dendron"
 
 # alias kd='DOCKER_HOST=$(docker context inspect colima -f {{.Endpoints.docker.Host}}) KITCHEN_YAML=.kitchen.dokken.yml kitchen'
 
+# NOTE: https://github.com/supercrabtree/k
+alias lk='\k'
+
 alias k='kubectl'
 
 alias k9sro='k9s --readonly'

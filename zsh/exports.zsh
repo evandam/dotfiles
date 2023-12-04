@@ -54,9 +54,9 @@ export PATH=$PATH:$GOPATH/bin
 
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 
-export PATH="$(brew --prefix libpq)/bin:$PATH"
-export PATH="${PATH}:${HOME}/.krew/bin"
-export PATH="${PATH}:${HOME}/.bin"
+PATH="$(brew --prefix libpq)/bin:$PATH"
+PATH="${PATH}:${HOME}/.krew/bin"
+export PATH
 
 export XDG_CONFIG_HOME="$HOME/.config"
 

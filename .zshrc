@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+PATH="${PATH}:${HOME}/.bin"
+PATH="${PATH}:${HOME}/.local/bin"
+export PATH
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -36,6 +40,9 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+autoload -Uz compinit
+compinit
+
 zinit wait lucid for \
   OMZL::directories.zsh \
   OMZL::functions.zsh \
@@ -45,9 +52,6 @@ zinit wait lucid for \
   OMZP::asdf
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
-# PS1=
-# zinit ice depth=1 lucid wait'!' lucid atload"source ${DOTFILES}/p10k.zsh; _p9k_precmd" nocd
-# zinit light scalp42/powerlevel10k
 
 zinit wait lucid for \
   light-mode unixorn/fzf-zsh-plugin \
@@ -80,9 +84,6 @@ zinit snippet "${DOTFILES}/zsh/functions.zsh"
 zinit snippet "${DOTFILES}/zsh/history.zsh"
 zinit ice wait lucid; zinit snippet "${DOTFILES}/zsh/exports.zsh"
 
-# autoload -Uz compinit
-# compinit
-
 # zinit ice wait lucid atload"autoload -Uz compinit && compinit -d $ZSH_CACHE/zcompdump"; zinit snippet "${DOTFILES}/zsh/sources.zsh"
 zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit snippet "${DOTFILES}/zsh/sources.zsh"
 zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit snippet "${DOTFILES}/zsh/eval.zsh"
@@ -102,14 +103,5 @@ zinit light marzocchi/zsh-notify
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/evan/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
-# bun completions
-[ -s "/Users/evan/.bun/_bun" ] && source "/Users/evan/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
