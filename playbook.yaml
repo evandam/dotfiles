@@ -41,6 +41,7 @@
           - gitops
           - git-delta
           - git-open
+          - gnu-tar
           - hadolint
           - helix
           - helm
@@ -94,6 +95,7 @@
         - ~/.docker
         - ~/.docker/cli-plugins
         - ~/.zinit
+        - ~/.krew
 
     - name: Create symlinks
       ansible.builtin.file:
@@ -124,7 +126,40 @@
       tags:
         - zinit
 
-# TODO: Krew
+    - name: Unarchive Krew
+      ansible.builtin.unarchive:
+        src: https://github.com/kubernetes-sigs/krew/releases/latest/download/krew-{{ ansible_facts.os_family | lower }}_{{ ansible_facts.architecture }}.tar.gz
+        dest: ~/.krew
+        remote_src: true
+      tags:
+        - krew
+
+    - name: Install Krew
+      ansible.builtin.shell: ./krew-{{ ansible_facts.os_family | lower }}_{{ ansible_facts.architecture }} install krew && touch installed
+      args:
+        chdir: ~/.krew
+        creates: ~/.krew/installed
+      tags:
+        - krew
+
+    - name: Install Krew plugins
+      ansible.builtin.shell: kubectl krew install {{ item }} && touch ~/.krew/{{ item }}.installed
+      args:
+        creates: ~/.krew/{{ item }}.installed
+      loop:
+        - colorize-applied
+        - confirm
+        - ctx
+        - foreach
+        - krew
+        - neat
+        - ns
+        - sort-manifests
+        - stern
+        - tree
+      tags:
+        - krew
+
   handlers:
     - name: Compile zinit source
       # noqa: no-changed-when
