@@ -135,17 +135,18 @@
         - krew
 
     - name: Install Krew
-      ansible.builtin.shell: ./krew-{{ ansible_facts.os_family | lower }}_{{ ansible_facts.architecture }} install krew && touch installed
+      ansible.builtin.shell: ./krew-{{ ansible_facts.os_family | lower }}_{{ ansible_facts.architecture }} install krew && touch .installed
       args:
         chdir: ~/.krew
-        creates: ~/.krew/installed
+        creates: ~/.krew/.installed
       tags:
         - krew
 
     - name: Install Krew plugins
-      ansible.builtin.shell: kubectl krew install {{ item }} && touch ~/.krew/{{ item }}.installed
+      ansible.builtin.shell: kubectl krew install {{ item }} && touch .{{ item }}.installed
       args:
-        creates: ~/.krew/{{ item }}.installed
+        chdir: ~/.krew
+        creates: ~/.krew/.{{ item }}.installed
       loop:
         - colorize-applied
         - confirm
