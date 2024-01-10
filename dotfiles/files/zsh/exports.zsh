@@ -64,4 +64,4 @@ export KUBECTL_EXTERNAL_DIFF=kubectl-neat-diff
 
 export XDG_CONFIG_HOME="${HOME}/.config"
 
-test -e "$DOTFILES/zsh/secrets/exports.zsh" && source $DOTFILES/zsh/secrets/exports.zsh
+test -e "${HOME}/zsh/secrets/exports.zsh" && source ${HOME}/zsh/secrets/exports.zsh

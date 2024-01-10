@@ -1,0 +1,11 @@
+---
+# handlers file for dotfiles
+- name: Compile zinit source
+  # noqa: no-changed-when
+  ansible.builtin.command:
+    cmd: zsh -ic 'zcompile ~/.zinit/bin/zinit.zsh'
+
+- name: Compile zinit
+  # noqa: no-changed-when
+  ansible.builtin.command:
+    cmd: zsh -ic 'zinit compile --all'

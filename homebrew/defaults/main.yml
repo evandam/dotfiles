@@ -1,0 +1,61 @@
+---
+# defaults file for homebrew
+packages:
+  - asdf
+  - awscli
+  - bash-language-server
+  - bat
+  - bfs
+  - bottom
+  - buildkit
+  - ca-certificates
+  - colima
+  - curlie
+  - docker
+  - docker-buildx
+  - docker-completion
+  - docker-compose
+  - dog
+  - eza
+  - flux
+  - gh
+  - git
+  - gitops
+  - git-delta
+  - git-open
+  - gnu-tar
+  - hadolint
+  - helix
+  - helm
+  - htop
+  - jq
+  - jump
+  - just
+  - k9s
+  - minikube
+  - neovim
+  - node
+  - nova
+  - oath-toolkit
+  - parallel
+  - qemu
+  - redis
+  - ripgrep
+  - safe-rm
+  - shellcheck
+  - sops
+  - telia-oss/tap/aws-env
+  - terminal-notifier
+  - terraform-ls
+  - tree
+  - tree-sitter
+  - vivid
+  - watch
+  - wget
+  - zoxide
+
+casks:
+  - dozer
+  - finch
+  - maccy
+  - openlens

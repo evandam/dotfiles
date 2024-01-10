@@ -1,0 +1,60 @@
+---
+# tasks file for dotfiles
+- name: Create directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+  loop:
+    - ~/.config
+    - ~/.config/nvim
+    - ~/.config/nvim/lua
+    - ~/.docker
+    - ~/.docker/cli-plugins
+    - ~/.zinit
+    - ~/.krew
+    - ~/dotfiles
+
+- name: Clone zinit
+  ansible.builtin.git:
+    repo: git@github.com:zdharma-continuum/zinit.git
+    dest: ~/.zinit/bin
+    update: true
+    # noqa: latest
+    version: HEAD
+  notify:
+    - Compile zinit source
+
+- name: Create symlinks
+  ansible.builtin.file:
+    path: "{{ item.dest }}"
+    src: "{{ item.src }}"
+    state: link
+  loop:
+    - src: /opt/homebrew/opt/docker-compose/bin/docker-compose
+      dest: ~/.docker/cli-plugins/docker-compose
+
+- name: Copy dotfiles
+  ansible.builtin.copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: 0644
+  loop:
+    - { src: .gitconfig, dest: ~/.gitconfig }
+    - { src: .gitignore_global, dest: ~/.gitignore_global }
+    - { src: .p10k.zsh, dest: ~/.p10k.zsh }
+    - { src: .vimrc, dest: ~/.vimrc }
+    - { src: .zshrc, dest: ~/.zshrc }
+    - { src: init.vim, dest: ~/.config/nvim/init.vim }
+    - { src: init.lua, dest: ~/.config/nvim/lua/init.lua }
+  notify:
+    - Compile zinit
+
+- name: Copy zsh scripts
+  ansible.builtin.copy:
+    src: zsh/
+    dest: ${HOME}/zsh
+    mode: 0755
+    backup: true
+  notify:
+    - Compile zinit

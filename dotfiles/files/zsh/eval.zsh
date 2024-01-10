@@ -4,6 +4,6 @@ eval "$(zoxide init zsh)"
 # eval "$(pyenv init -)"
 #
 
-test -e "$DOTFILES/zsh/secrets/eval.zsh" && source $DOTFILES/zsh/secrets/eval.zsh
+test -e "${HOME}/zsh/secrets/eval.zsh" && source ${HOME}/zsh/secrets/eval.zsh
 
 ulimit -n 2048

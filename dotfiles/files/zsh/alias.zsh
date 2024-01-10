@@ -74,4 +74,4 @@ alias docker-run-pwd='docker run $(basename $PWD)'
 
 # alias docker=finch
 
-test -e "$DOTFILES/zsh/secrets/alias.zsh" && source $DOTFILES/zsh/secrets/alias.zsh
+test -e "${HOME}/zsh/secrets/alias.zsh" && source ${HOME}/zsh/secrets/alias.zsh

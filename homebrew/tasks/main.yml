@@ -1,0 +1,20 @@
+---
+# tasks file for homebrew
+
+# NOTE: https://brew.sh/
+- name: Install Homebrew
+  ansible.builtin.command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  args:
+    creates: /opt/homebrew/bin/brew
+
+- name: Update Homebrew
+  community.general.homebrew:
+    update_homebrew: true
+
+- name: Install Brew packages
+  community.general.homebrew:
+    name: "{{ packages }}"
+
+- name: Install Brew Casks
+  community.general.homebrew_cask:
+    name: "{{ casks }}"

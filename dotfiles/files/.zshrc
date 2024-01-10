@@ -18,7 +18,6 @@ export ZSH_COMPDUMP="${ZSH_CACHE}/.zcompdump-${(%):-%m}-${ZSH_VERSION}"
 
 # zmodload zsh/zprof
 
-DOTFILES=$HOME/dotfiles
 ZSH_CACHE=$HOME/.zsh/cache
 
 declare -A ZINIT
@@ -79,14 +78,14 @@ zinit wait lucid for \
   OMZP::rbenv \
   macunha1/zsh-terraform
 
-zinit snippet "${DOTFILES}/zsh/alias.zsh"
-zinit snippet "${DOTFILES}/zsh/functions.zsh"
-zinit snippet "${DOTFILES}/zsh/history.zsh"
-zinit ice wait lucid; zinit snippet "${DOTFILES}/zsh/exports.zsh"
+zinit snippet "${HOME}/zsh/alias.zsh"
+zinit snippet "${HOME}/zsh/functions.zsh"
+zinit snippet "${HOME}/zsh/history.zsh"
+zinit ice wait lucid; zinit snippet "${HOME}/zsh/exports.zsh"
 
-# zinit ice wait lucid atload"autoload -Uz compinit && compinit -d $ZSH_CACHE/zcompdump"; zinit snippet "${DOTFILES}/zsh/sources.zsh"
-zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit snippet "${DOTFILES}/zsh/sources.zsh"
-zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit snippet "${DOTFILES}/zsh/eval.zsh"
+# zinit ice wait lucid atload"autoload -Uz compinit && compinit -d $ZSH_CACHE/zcompdump"; zinit snippet "${HOME}/zsh/sources.zsh"
+zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit snippet "${HOME}/zsh/sources.zsh"
+zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit snippet "${HOME}/zsh/eval.zsh"
 
 zinit ice wait:0 lucid atload'
 	zstyle ":notify:*" error-title "Command failed (in #{time_elapsed} seconds)"
@@ -94,9 +93,6 @@ zinit ice wait:0 lucid atload'
 	zstyle ":notify:*" command-complete-timeout 2
 	zstyle ":notify:*" enable-on-ssh yes'
 zinit light marzocchi/zsh-notify
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f "${DOTFILES}/p10k.zsh" ]] || source "${DOTFILES}/p10k.zsh"
 
 # zinit cdreplay -q
 

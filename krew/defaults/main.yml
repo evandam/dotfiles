@@ -1,0 +1,13 @@
+---
+# defaults file for krew
+plugins:
+  - colorize-applied
+  - confirm
+  - ctx
+  - foreach
+  - krew
+  - neat
+  - ns
+  - sort-manifests
+  - stern
+  - tree
