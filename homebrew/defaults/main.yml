@@ -9,6 +9,7 @@ packages:
   - bottom
   - buildkit
   - ca-certificates
+  - caddy
   - colima
   - curlie
   - docker
@@ -16,22 +17,38 @@ packages:
   - docker-completion
   - docker-compose
   - dog
+  - dust
+  - erdtree
   - eza
   - flux
+  - fontconfig
+  - fzf
   - gh
   - git
-  - gitops
   - git-delta
   - git-open
+  - gitops
   - gnu-tar
+  - go
+  - gomplate
+  - gron
   - hadolint
   - helix
   - helm
   - htop
+  - httpie
   - jq
   - jump
   - just
   - k9s
+  - kind
+  - krew
+  - kubernetes-cli
+  - kustomize
+  - kyverno
+  - linkerd
+  - magic-wormhole
+  - make
   - minikube
   - neovim
   - node
@@ -39,19 +56,32 @@ packages:
   - oath-toolkit
   - parallel
   - qemu
+  - qrencode
   - redis
   - ripgrep
   - safe-rm
   - shellcheck
   - sops
+  - sqlite
   - telia-oss/tap/aws-env
   - terminal-notifier
   - terraform-ls
+  - tflint
+  - tfsec
+  - the_silver_searcher
+  - thefuck
+  - traefik
   - tree
   - tree-sitter
+  - trivy
+  - viddy
   - vivid
   - watch
   - wget
+  - wireguard-go
+  - wireguard-tools
+  - yamllint
+  - yq
   - zoxide
 
 casks:

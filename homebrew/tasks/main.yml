@@ -18,3 +18,23 @@
 - name: Install Brew Casks
   community.general.homebrew_cask:
     name: "{{ casks }}"
+
+- name: Create Docker plugin dir
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
+  loop:
+    - ~/.docker
+    - ~/.docker/cli-plugins
+
+- name: Create Docker plugin links
+  ansible.builtin.file:
+    path: "{{ item.dest }}"
+    src: "{{ item.src }}"
+    state: link
+  loop:
+    - src: /opt/homebrew/opt/docker-compose/bin/docker-compose
+      dest: ~/.docker/cli-plugins/docker-compose
+    - src: /opt/homebrew/opt/docker-buildx/bin/docker-buildx
+      dest: ~/.docker/cli-plugins/docker-buildx

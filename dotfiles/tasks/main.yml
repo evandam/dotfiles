@@ -4,15 +4,12 @@
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
-    mode: "0755"
+    mode: 0755
   loop:
     - ~/.config
     - ~/.config/nvim
     - ~/.config/nvim/lua
-    - ~/.docker
-    - ~/.docker/cli-plugins
     - ~/.zinit
-    - ~/.krew
     - ~/dotfiles
 
 - name: Clone zinit
@@ -24,15 +21,6 @@
     version: HEAD
   notify:
     - Compile zinit source
-
-- name: Create symlinks
-  ansible.builtin.file:
-    path: "{{ item.dest }}"
-    src: "{{ item.src }}"
-    state: link
-  loop:
-    - src: /opt/homebrew/opt/docker-compose/bin/docker-compose
-      dest: ~/.docker/cli-plugins/docker-compose
 
 - name: Copy dotfiles
   ansible.builtin.copy:
@@ -53,7 +41,7 @@
 - name: Copy zsh scripts
   ansible.builtin.copy:
     src: zsh/
-    dest: ${HOME}/zsh
+    dest: ~/zsh
     mode: 0755
     backup: true
   notify:

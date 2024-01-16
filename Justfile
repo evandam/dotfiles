@@ -35,3 +35,7 @@ dotfiles:
 # Install Krew and plugins
 krew:
   @just run -t krew
+
+# Initialize a new Ansible role
+init-role name:
+  poetry run ansible-galaxy role init {{name}}
