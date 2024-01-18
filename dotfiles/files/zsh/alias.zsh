@@ -47,7 +47,7 @@ alias vscv="code --verbose"
 alias vscl="code --log"
 alias vscde="code --disable-extensions"
 
-alias curl="curl -sLf"
+# alias curl="curl -sLf"
 
 alias dendron="code ~/Dendron/dendron.code-workspace"
 alias notes="dendron"
