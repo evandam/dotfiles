@@ -1,10 +1,10 @@
 #!/usr/bin/env zsh
 
-if [[ -f "/usr/local/bin/aws_zsh_completer.sh" ]]; then
-  source "/usr/local/bin/aws_zsh_completer.sh"
+if [[ -f "/opt/homebrew/bin/aws_completer" ]]; then
+  complete -C "/opt/homebrew/bin/aws_completer" aws
 fi
 
-source <(/Users/evan/.asdf/shims/kubectl completion zsh)
+source <(~/.asdf/shims/kubectl completion zsh)
 source <(/opt/homebrew/bin/helm completion zsh)
 source <(/opt/homebrew/bin/flux completion zsh)
 source <(colima completion zsh)

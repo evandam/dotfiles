@@ -32,15 +32,16 @@ fi
 
 source $ZINIT_HOME/bin/zinit.zsh
 
+autoload -Uz compinit bashcompinit
+compinit
+bashcompinit
+
 eval $(/opt/homebrew/bin/brew shellenv)
 
 # NOTE: make prompt faster
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-autoload -Uz compinit
-compinit
 
 zinit wait lucid for \
   OMZL::directories.zsh \
@@ -83,9 +84,11 @@ zinit snippet "${HOME}/zsh/functions.zsh"
 zinit snippet "${HOME}/zsh/history.zsh"
 zinit ice wait lucid; zinit snippet "${HOME}/zsh/exports.zsh"
 
+# NOTE: See https://github.com/zdharma-continuum/zinit#calling-compinit-with-turbo-mode
 # zinit ice wait lucid atload"autoload -Uz compinit && compinit -d $ZSH_CACHE/zcompdump"; zinit snippet "${HOME}/zsh/sources.zsh"
 zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit snippet "${HOME}/zsh/sources.zsh"
 zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit snippet "${HOME}/zsh/eval.zsh"
+
 
 zinit ice wait:0 lucid atload'
 	zstyle ":notify:*" error-title "Command failed (in #{time_elapsed} seconds)"
@@ -94,10 +97,10 @@ zinit ice wait:0 lucid atload'
 	zstyle ":notify:*" enable-on-ssh yes'
 zinit light marzocchi/zsh-notify
 
-# zinit cdreplay -q
-
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+zinit cdreplay -q
