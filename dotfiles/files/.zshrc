@@ -31,6 +31,8 @@ if [[ ! -f $ZINIT_HOME/bin/zinit.zsh ]]; then
 fi
 
 source $ZINIT_HOME/bin/zinit.zsh
+# NOTE: Let zoxide use zi
+unalias zi
 
 autoload -Uz compinit bashcompinit
 compinit
@@ -88,7 +90,6 @@ zinit ice wait lucid; zinit snippet "${HOME}/zsh/exports.zsh"
 # zinit ice wait lucid atload"autoload -Uz compinit && compinit -d $ZSH_CACHE/zcompdump"; zinit snippet "${HOME}/zsh/sources.zsh"
 zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit snippet "${HOME}/zsh/sources.zsh"
 zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit snippet "${HOME}/zsh/eval.zsh"
-
 
 zinit ice wait:0 lucid atload'
 	zstyle ":notify:*" error-title "Command failed (in #{time_elapsed} seconds)"

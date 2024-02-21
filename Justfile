@@ -22,7 +22,7 @@ run *args:
 
 # Run Ansible in check mode
 check *args:
-  @just run --check "$@"
+  @just run --check --diff "$@"
 
 # Update and install brew packages
 homebrew:

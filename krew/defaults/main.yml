@@ -5,6 +5,7 @@ plugins:
   - confirm
   - ctx
   - foreach
+  - history
   - krew
   - neat
   - ns
