@@ -79,7 +79,8 @@ zinit wait lucid for \
   OMZP::safe-paste \
   OMZP::urltools \
   OMZP::rbenv \
-  macunha1/zsh-terraform
+  macunha1/zsh-terraform \
+  light-mode atuinsh/atuin \
 
 zinit snippet "${HOME}/zsh/alias.zsh"
 zinit snippet "${HOME}/zsh/functions.zsh"

@@ -35,6 +35,7 @@
     - { src: .zshrc, dest: ~/.zshrc }
     - { src: init.vim, dest: ~/.config/nvim/init.vim }
     - { src: init.lua, dest: ~/.config/nvim/lua/init.lua }
+    - { src: atuin.toml, dest: ~/.config/atuin/config.toml }
   notify:
     - Compile zinit
 
