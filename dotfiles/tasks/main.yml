@@ -9,6 +9,7 @@
     - ~/.config
     - ~/.config/nvim
     - ~/.config/nvim/lua
+    - ~/.config/atuin
     - ~/.zinit
     - ~/dotfiles
 
